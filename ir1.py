@@ -1,4 +1,5 @@
 import sys
+import sys
 import xml.etree.ElementTree as ET # etree library for xml data parsing
 f4 = open("wordCount.txt", 'r+')  #output file
 output=''
@@ -15,6 +16,10 @@ while fileposition<len(allfiles):
 	output+= out1 + out2  #string hold all the texts
 	fileposition+=1  # increment pointer to access next file
  
+ print("removing punctuation")
+		exclude = list(string.punctuation)
+		exclude.append('।')
+		output = "".join(c for c in output if c not in exclude)
 print(output) #content of all the files
 m= output.split(" ")
 n = set(m)
